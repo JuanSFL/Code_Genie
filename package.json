@@ -1,8 +1,8 @@
 {
-  "name": "project_3",
+  "name": "programming-thoughts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "start": "node server --ignore client",
     "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
@@ -10,27 +10,10 @@
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JuanSFL/Project_3.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JuanSFL/Project_3/issues"
-  },
-  "homepage": "https://github.com/JuanSFL/Project_3#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "express-graphql": "^0.12.0",
-    "graphql": "^15.8.0",
-    "mongoose": "^7.0.1"
-  },
   "devDependencies": {
-    "dotenv": "^16.0.3",
-    "nodemon": "^2.0.21",
     "concurrently": "^5.1.0"
   }
 }
