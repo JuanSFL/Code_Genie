@@ -1,38 +1,41 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import ThoughtList from '../components/ThoughtList';
-import ThoughtForm from '../components/ThoughtForm';
+function Home() {
+  const [loginCardOpen, setLoginCardOpen] = useState(false);
+  const [searchCardOpen, setSearchCardOpen] = useState(false);
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+  const toggleLoginCard = () => {
+    setLoginCardOpen(!loginCardOpen);
+  }
 
-const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
+  const toggleSearchCard = () => {
+    setSearchCardOpen(!searchCardOpen);
+  }
 
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <h2>Welcome to Code Genie</h2>
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <ThoughtForm />
+    <div>
+      {/* <h1 className="intro">GET ANSWERS FAST.</h1> */}
+        <div className="welcome-info">
+        <div className="card-display">
+        <div className={`card1 ${loginCardOpen ? 'card-open' : ''}`}>
+          <div className="details">
+          <h4>Code Genie</h4>
+          <span>The worlds first forum to integrate an AI chatbot to help developers get answers instantly.</span>
+          <Link to ="/login"><button className="flashy-btn" >Login</button></Link>
+          </div>
         </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Most recent questions"
-            />
-          )}
+        <div className={`card2 ${searchCardOpen ? 'card-open' : ''}`}>
+        <div className="details">
+          <h4>Solutions</h4>
+          <span>Search previously asked community questions for a solution</span>
+          <Link to="/search"><input placeholder="Search" className="input" name="text" type="text"></input></Link>
+          </div>
+          </div>
         </div>
       </div>
-    </main>
+    </div>
   );
-};
+}
 
 export default Home;

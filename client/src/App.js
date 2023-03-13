@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Main.css"
 import {
   ApolloClient,
   InMemoryCache,
@@ -14,7 +15,9 @@ import Login from './pages/Login';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Header from './components/Header';
-import Footer from './components/Footer';
+import SearchQuestion from './pages/SearchQuestion';
+import GenieMode from './pages/GenieMode';
+import Ask from './pages/Ask'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -57,6 +60,18 @@ function App() {
                 element={<Login />}
               />
               <Route 
+                path="/genie"
+                element={<GenieMode />}
+              />
+              <Route 
+                path="/ask"
+                element={<Ask />}
+              />
+              <Route 
+                path="/search"
+                element={<SearchQuestion />}
+              />
+              <Route 
                 path="/signup"
                 element={<Signup />}
               />
@@ -74,7 +89,6 @@ function App() {
               />
             </Routes>
           </div>
-          <Footer />
         </div>
       </Router>
     </ApolloProvider>

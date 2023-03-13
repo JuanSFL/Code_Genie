@@ -1,46 +1,64 @@
-import React from 'react';
+import logo from "../../images/logo.png"
 import { Link } from 'react-router-dom';
-
 import Auth from '../../utils/auth';
 
-const Header = () => {
+function Header() {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
-  return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
-          <Link className="text-light" to="/">
-            <h1 className="m-0">CODE GENIE</h1>
-          </Link>
-          <p className="m-0">Rub the lamp</p>
-        </div>
-        <div>
-          {Auth.loggedIn() ? (
+    return(
+
+<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<Link to="/"><img src={logo} id="logo" className="navbar-brand d-lg-none" alt=""></img></Link>
+
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+
+  <div className="collapse navbar-collapse justify-content-between" id="navbarToggle">
+
+    <ul className="navbar-nav">
+      <li className="nav-item">
+        <a className="nav-link active" href="#">About <span className="sr-only"></span></a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="/ask">Ask a Question</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" id="genieMode" href="/genie">Genie Mode</a>
+      </li>
+    </ul>
+    
+    <Link to="/"><img src={logo} id="logo" className="navbar-brand d-none d-lg-block"></img></Link>
+    
+
+    {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
-                {Auth.getProfile().data.username}'s profile
-              </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
+    <ul className="navbar-nav">
+      <li className="nav-item">
+      <Link to="/me"><a className="nav-link" href="/login">Profile</a></Link>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" onClick={logout}>Logout</a>
+      </li>
+    </ul>
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
-                Login
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
-                Signup
-              </Link>
+    <ul className="navbar-nav">
+      <li className="nav-item">
+        <Link to="/login"><a className="nav-link" href="/login">Login</a></Link>
+      </li>
+    </ul>
             </>
           )}
-        </div>
-      </div>
-    </header>
-  );
-};
+
+
+  </div>
+</nav>
+    )
+}
 
 export default Header;
