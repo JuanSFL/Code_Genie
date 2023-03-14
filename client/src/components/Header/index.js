@@ -27,7 +27,7 @@ function Header() {
         <a className="nav-link" href="/ask">Ask a Question</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" id="genieMode" href="/genie">Genie Mode</a>
+        <a className="nav-link" id="genieMode" href="/genie-mode">Genie Mode</a>
       </li>
     </ul>
     

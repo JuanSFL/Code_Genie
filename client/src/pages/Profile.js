@@ -47,7 +47,7 @@ const Profile = () => {
             <p>Front End Software Engineer. Here to answer questions!</p>
             </div>
             <div className="user-answers">
-                <h3>Recently Answered Questions</h3>
+                <h3>Recently Asked Questions</h3>
                 <hr/>
             </div>
         </div>
