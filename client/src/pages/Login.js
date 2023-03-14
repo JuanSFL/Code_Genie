@@ -41,54 +41,49 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="********"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
-
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
-          </div>
+    <div>
+    <div className="large-container-center">
+    <div className="login-cont">
+      <h2>Login</h2>
+      <form onSubmit={handleFormSubmit}>
+        <div className="enter-cred">
+          <label htmlFor="email" ></label>
+          <input
+            placeholder="youremail@test.com"
+            name="email"
+            type="email"
+            value={formState.email}
+            className="cred-input"
+            onChange={handleChange}
+          />
         </div>
-      </div>
-    </main>
+        <div className="enter-cred">
+          <label htmlFor="pwd"></label>
+          <input
+            placeholder="password"
+            name="password"
+            type="password"
+            value={formState.password}
+            className="cred-input"
+            onChange={handleChange}
+          />
+        </div>
+        {error ? (
+          <div>
+            <p className="error-text">The provided credentials are incorrect</p>
+          </div>
+        ) : null}
+        <div className="log-btns">
+          <button type="submit" className="flashy-btn">Submit</button>
+          <p className="or">Or</p>
+      <Link to="/signup" className="flashy-btn">Signup</Link>
+          </div>
+      </form>
+      
+    </div>
+    </div>
+    </div>
   );
-};
+}
 
 export default Login;

@@ -1,0 +1,504 @@
+html,
+body {
+  background-color: rgb(24, 24, 24);
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+/* HEADER */
+
+@import '~bootstrap/dist/css/bootstrap.css';
+
+.navbar {
+  background-color: rgb(17, 17, 17) !important;
+  box-shadow: 1px -8px 20px 0px rgba(0, 0, 0, 0.61);
+}
+
+.navbar-brand {
+  margin-right: 14.5rem;
+}
+
+a {
+  color: white !important;
+  text-decoration: none
+}
+
+a:hover {
+    text-shadow: -1px 1px 2px rgba(255, 255, 255, 0.466);
+    text-decoration: none
+}
+
+#genieMode {
+  background-image: linear-gradient(
+    to right,
+    red,
+    rgb(196, 196, 2),
+    purple,
+    rgb(90, 68, 216),
+    gold,
+    blue
+  );
+  background-size: 220%;
+  background-repeat: repeat;
+  transition: background-position 0.5s;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.301);
+  animation: animateGradient 5s ease-in-out infinite;
+}
+
+@keyframes animateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#logo {
+  max-width: 40px;
+}
+
+.navbar-toggler-icon {
+  color: black !important;
+}
+
+/* END HEADER */
+
+/* INTRO CONTAINER */
+
+.intro {
+  margin-top: 40px;
+  font-size: 48px;
+  color: rgb(23, 82, 170);
+  text-shadow: -2px 2px 4px black,
+  2px 2px 4px black;
+}
+
+.welcome-info {
+  margin: auto;
+  display: block;
+  margin-top: 60px;
+  width: 75%;
+}
+
+.card-display {
+  display: flex;
+}
+
+.details {
+  text-align: center !important;
+  margin: auto;
+  margin-top: 30%;
+  max-width: 80%;
+  display: block;
+  color:white;
+}
+
+.card1 {
+  background-image: url('https://static.vecteezy.com/system/resources/previews/001/849/179/non_2x/dark-blue-gradient-blur-drawing-vector.jpg');
+  overflow: hidden;
+  width: 50%;
+  height: 550px;
+  border-radius: 30px;
+  backdrop-filter: blur(20px);
+  box-shadow: -3px 4px 20px black;
+ }
+
+.card2 {
+  width: 50%;
+  bottom: 0;
+  margin-left: 10px;
+  height: 450px;
+  border-radius: 30px;
+  background: rgb(24, 24, 24);
+  box-shadow: 3px 4px 20px black;
+ }
+
+ .card-open {
+  animation: disappear 1s ease-out;
+ }
+
+ @keyframes disappear {
+   0% {
+     opacity: 1;
+   }
+   25% {
+     opacity: 0.75;
+   }
+   50% {
+     opacity: 0.5;
+   }
+   75% {
+     opacity: 0.25;
+   }
+   100% {
+     opacity: 0;
+   }
+ }
+
+.input {
+  margin: auto;
+  margin-top: 50px;
+  display: block;
+  background: none;
+  border: none;
+  outline: none;
+  max-width: 190px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 9999px;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  color: #fff;
+}
+
+.or {
+  margin-top: 20px;
+}
+
+.flashy-btn {
+  margin: auto;
+  top: 45px;
+  display: block;
+  width: 140px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: rgb(17, 17, 17);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.flashy-btn:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.flashy-btn:active {
+  color: #000
+}
+
+.flashy-btn:active:after {
+  background: transparent;
+}
+
+.flashy-btn:hover:before {
+  opacity: 1;
+}
+
+.flashy-btn:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* END INTRO CONTAINER */
+
+/* LOGIN PAGE */
+
+.large-container-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-cont {
+    display: block;
+    margin: auto;
+    text-align: center;
+    height: 500px;
+    width: 400px;
+    background-color: rgb(24, 24, 24);
+    box-shadow: -4px 3px 20px rgba(0, 0, 0, 0.822),
+    4px 2px 20px rgb(36, 36, 36);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.login-cont h2 {
+    color: white;
+    transform: translateY(30px);
+    font-size: 30px;
+}
+
+.enter-cred {
+    margin: 12px;
+}
+
+.cred-input {
+    border-radius: 10px;
+    border-color: transparent;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    margin-top: 35px;
+    padding: 20px;
+    color: white;
+    font-size: 16px;
+}
+
+.labels {
+  margin-top: 15%;
+}
+
+.log-btns {
+  display: block;
+  margin: auto;
+}
+
+#btn-space {
+  margin-top: 12px;
+}
+
+.submit {
+    margin-top: 10px;
+    border-radius: 10px;
+    border-color: transparent ;
+    padding: 7px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: gold;
+    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.384);
+    color: rgb(255, 255, 255);
+}
+
+.or {
+    transform: translateY(40px);
+    color: white;
+}
+
+.login-option {
+    margin-top: 25px;
+    font-size: 16px;
+}
+
+/* END LOGIN */
+
+/* SEARCH BAR */
+
+.search-cont {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.search-cont > h1 {
+  color: white;
+  font-size: 42px;
+  margin: 10px;
+}
+
+.searchbar {
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  border-color: transparent;
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.856);
+}
+
+/* END SEARCH BAR */
+
+/* PROFILE */
+
+.profile-container {
+  text-align: center;
+}
+
+.profile-container h1 {
+  margin-top: 30px;
+  color: white;
+}
+
+.profile-bg {
+  height: 400px;
+  background-color: white;
+}
+
+.profile-info {
+  margin-top: 120px;
+  height: 500px;
+  background-color: rgb(49, 49, 49);
+  box-shadow: inset -2px -1px 20px 0px #000000b7;
+}
+
+.profile-img {
+  max-width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  transform: translateY(-75px);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.753);
+}
+
+.username {
+  font-size: 22px;
+}
+
+.user-details {
+  margin-top: -30px;
+  color: white;
+  font-size: 18px;
+  padding-bottom: 30px;
+}
+
+hr {
+  background-color: white;
+  width: 30%;
+  height: 0.1px;
+  margin: auto;
+}
+
+.user-answers {
+  padding-bottom: 30px;
+  color: white;
+}
+
+.user-answers > h3 {
+  text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.432);
+}
+
+/* Thought List */
+
+.question-card {
+  background-color: black;
+}
+
+.card-title {
+  background-color: rgb(24, 24, 24);
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+.form-dark {
+  background-color: rgb(24, 24, 24);
+  color: white;
+  height: 30px;
+}
+
+/* GENIE MODE */
+
+.genie-ask {
+  text-align: center;
+  margin-top: 10%;
+
+}
+
+.genie-ask > h2 {
+  color: white;
+}
+
+  .glowing {
+    background-image: linear-gradient(
+      to right,
+      purple,
+      rgb(196, 196, 2),
+      red,
+      rgb(90, 68, 216),
+      gold,
+      blue
+    );
+    background-size: 220%;
+    background-repeat: repeat;
+    transition: background-position 0.5s;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.301);
+    animation: animateGradient 5s ease-in-out infinite;
+  }
+  
+  @keyframes animateGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .ask-q {
+    margin-top: 20px;
+    width: 40%;
+    height: 40px;
+    border-radius: 10px;
+    border-color: transparent;
+    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.856);
+  }
+
+
+  .token-icon {
+    max-width: 30px;
+    height: 25px;
+    margin-left: 10px;
+  }
+
+  .small-text {
+    margin-top: 55px;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  /* Ask Question */
+
+  .type-white {
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .question-ask {
+    display: block;
+    margin: auto;
+  }
+
+  .ask-input {
+    width: 60%;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: auto;
+    margin-top: 50px;
+    display: block;
+    box-shadow: -4px 4px 10px black;
+  }

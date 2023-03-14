@@ -1,9 +1,8 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
-import ThoughtForm from '../components/ThoughtForm';
-import ThoughtList from '../components/ThoughtList';
+import profilePicture from "../images/profile.png";
+import ThoughtList from '../components/ThoughtList/index';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -38,11 +37,22 @@ const Profile = () => {
   return (
     <div> 
      
-      <div className="flex-row justify-center mb-3">
-       
-         <h2>Your recent posts</h2>
-
-        <div className="col-12 col-md-10 mb-5">
+      <div>
+      <div className="profile-container">
+        <h1>Hello, {user.username}</h1>
+        <div className="profile-info">
+          <img src={profilePicture} className="profile-img" alt="" />
+          <div className="user-details">
+            <p className="username"><b>{user.username}</b></p>
+            <p>Front End Software Engineer. Here to answer questions!</p>
+            </div>
+            <div className="user-answers">
+                <h3>Recently Answered Questions</h3>
+                <hr/>
+            </div>
+        </div>
+      </div>
+        <div className="recently-answered">
           <ThoughtList
             thoughts={user.thoughts}
             title={`${user.username}'s thoughts...`}
