@@ -56,8 +56,8 @@ const Ask = () => {
   };
 
   return (
-    <div>
-      <h3 className="type-white">What's on your techy mind?</h3>
+    <div className="top-pad">
+      <h3 className="type-white large">Ask the Community</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -83,11 +83,11 @@ const Ask = () => {
             Character Count: {characterCount}/280
           </p>
 
-            <div className="col-12 col-lg-3">
+          
               <button className="flashy-btn" type="submit">
                 Add Thought
               </button>
-            </div>
+        
             {error && (
               <div className="col-12 my-3 bg-danger text-white p-3">
                 {error.message}
@@ -96,9 +96,13 @@ const Ask = () => {
           </form>
         </>
       ) : (
-        <p>
-          You need to be logged in to share your thoughts. Please{' '}
-          <Link to="/login">Login</Link> or <Link to="/signup">Signup.</Link>
+        <p className="not-logged">
+          You need to be logged in to ask questions. Please:
+          <div className="log-btns">
+              <Link to ="/login"><button className="flashy-btn">Login</button></Link>
+              <p className="or">Or</p>
+              <Link to ="/signup"><button className="flashy-btn">Signup</button></Link>
+              </div>
         </p>
       )}
     </div>

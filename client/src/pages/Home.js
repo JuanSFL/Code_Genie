@@ -1,38 +1,37 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import genieDemo from "../images/genie-demo.png"
+import Auth from '../utils/auth';
 
 function Home() {
-  const [loginCardOpen, setLoginCardOpen] = useState(false);
-  const [searchCardOpen, setSearchCardOpen] = useState(false);
 
-  const toggleLoginCard = () => {
-    setLoginCardOpen(!loginCardOpen);
-  }
-
-  const toggleSearchCard = () => {
-    setSearchCardOpen(!searchCardOpen);
-  }
 
   return (
-    <div>
-      {/* <h1 className="intro">GET ANSWERS FAST.</h1> */}
+    <div className="appear">
+      <div>
+      <div className="hero">
         <div className="welcome-info">
-        <div className="card-display">
-        <div className={`card1 ${loginCardOpen ? 'card-open' : ''}`}>
-          <div className="details">
-          <h4>Code Genie</h4>
-          <span>The worlds first forum to integrate an AI chatbot to help developers get answers instantly.</span>
-          <Link to ="/login"><button className="flashy-btn" >Login</button></Link>
-          </div>
-        </div>
-        <div className={`card2 ${searchCardOpen ? 'card-open' : ''}`}>
-        <div className="details">
-          <h4>Solutions</h4>
-          <span>Search previously asked community questions for a solution</span>
-          <Link to="/search"><input placeholder="Search" className="input" name="text" type="text"></input></Link>
-          </div>
-          </div>
-        </div>
+        <p className="description low-opacity">CODE GENIE</p>
+      <h1 className="bold-intro">For Developers, By Developers... And A.I.</h1>
+      <p className="description">The Worlds first coding forum to integrate an A.I. chatbot to get developers answers immediately.</p>
+
+    {Auth.loggedIn() ? (
+            <>
+      <div className="btn-options">
+      <Link to ="/search"><button className="flashy-btn left">Search</button></Link>
+      </div>
+            </>
+          ) : (
+            <>
+      <div className="btn-options">
+      <Link to ="/login"><button className="flashy-btn left">Login</button></Link>
+      <p className="or">Or</p>
+      <Link to ="/signup"><button className="flashy-btn left">Signup</button></Link>
+      </div>
+            </>
+          )}
+      </div>
+      <img src={genieDemo} className="card"></img>
+      </div>
       </div>
     </div>
   );

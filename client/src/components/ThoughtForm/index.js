@@ -24,13 +24,6 @@ const ThoughtForm = () => {
       } catch (e) {
         console.error(e);
       }
-
-      // update me object's cache
-      // const { me } = cache.readQuery({ query: QUERY_ME });
-      // cache.writeQuery({
-      //   query: QUERY_ME,
-      //   data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
-      // });
     },
   });
 
@@ -104,10 +97,16 @@ const ThoughtForm = () => {
           </form>
         </>
       ) : (
-        <p>
-          You need to be logged in to share your thoughts. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        <p className="not-logged">
+          You need to be logged in to share your thoughts. Please:
+          <div className="btn-options">
+              <Link to ="/login"><button className="flashy-btn left">Login</button></Link>
+              <p className="or">Or</p>
+              <Link to ="/signup"><button className="flashy-btn left">Signup</button></Link>
+              </div>
         </p>
+              
+              
       )}
     </div>
   );

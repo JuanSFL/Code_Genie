@@ -56,13 +56,13 @@ function App() {
                 path="/"
                 element={<Home />}
               />
+               <Route 
+                path="/genie-mode"
+                element={<GenieMode />}
+              />
               <Route 
                 path="/login"
                 element={<Login />}
-              />
-              <Route 
-                path="/genie"
-                element={<GenieMode />}
               />
               <Route 
                 path="/ask"
