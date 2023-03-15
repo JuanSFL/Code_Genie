@@ -7,7 +7,6 @@ const typeDefs = gql`
     email: String
     password: String
     thoughts: [Thought]!
-    genieTokens: INT
   }
 
   type Thought {

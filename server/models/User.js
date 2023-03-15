@@ -25,11 +25,6 @@ const userSchema = new Schema({
       ref: 'Thought',
     },
   ],
-  genieTokens:{
-    type: Number,
-    default: 5,
-    minlength:0
-  }
 });
 
 userSchema.pre('save', async function (next) {
