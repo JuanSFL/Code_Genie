@@ -24,6 +24,7 @@ const SingleThought = () => {
     return <div>Loading...</div>;
   }
   return (
+    <div className="single-question">
     <div className="my-3">
       <h3 className="created-by">
         Posted by {thought.thoughtAuthor} <br />
@@ -45,6 +46,8 @@ const SingleThought = () => {
       <div className="m-3 p-4">
         <CommentForm thoughtId={thought._id} />
       </div>
+    </div>
+    <div className="cont-space"></div>
     </div>
   );
 };

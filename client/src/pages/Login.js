@@ -44,7 +44,7 @@ const Login = (props) => {
     <div>
     <div className="large-container-center">
     <div className="login-cont">
-      <h2>Login</h2>
+      <h2>LOGIN</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="enter-cred">
           <label htmlFor="email" ></label>
@@ -76,7 +76,7 @@ const Login = (props) => {
         <div className="log-btns">
           <button type="submit" className="flashy-btn">Submit</button>
           <p className="or">Or</p>
-      <Link to="/signup" className="flashy-btn">Signup</Link>
+      <button className="flashy-btn"><Link to="/signup" >Signup</Link></button>
           </div>
       </form>
       
