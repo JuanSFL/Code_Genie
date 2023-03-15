@@ -7,7 +7,7 @@ require("dotenv").config(); // Load environment variables from .env file
 // const openaiRoute = require("./api/openai");
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
-
+const openAiApp = require('./routes/index');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
@@ -16,6 +16,7 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
+app.use('/openai', openAiApp);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 // app.use("/api/openai", openaiRoute);

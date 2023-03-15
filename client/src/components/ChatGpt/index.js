@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-import { generateAnswer } from "../../api/openai";
+import axios from 'axios';
 
 function CodeGenie(props) {
   console.log(props);
@@ -13,11 +12,11 @@ function CodeGenie(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    generateAnswer(question)
-      .then((response) => {
-        setAnswer(response);
+    axios.get('http://localhost:3001/openai')
+      .then(response => {
+        setAnswer(response.data.answer);
       })
-      .catch((error) => {
+      .catch(error => {
         console.error(error);
       });
   };
