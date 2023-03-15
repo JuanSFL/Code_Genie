@@ -56,7 +56,7 @@ const Ask = () => {
   };
 
   return (
-    <div>
+    <div className="top-pad">
       <h3 className="type-white large">Ask the Community</h3>
 
       {Auth.loggedIn() ? (
