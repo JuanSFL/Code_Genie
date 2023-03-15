@@ -7,6 +7,15 @@ body {
   background-size: cover;
 }
 
+@font-face {
+  font-family: Oddval;
+  src: url("./fonts/Fontspring-DEMO-oddval-bold-BF640a8b02262ad.otf");
+}
+
+.cont-space {
+  padding-top: 5%;
+}
+
 .appear {
   animation: appear 2s ease-in;
 }
@@ -123,6 +132,23 @@ a:hover {
   2px 2px 4px rgba(250, 250, 250, 0.438);
 }
 
+@media only screen and (max-width:900px) {
+  .bold-intro {
+    font-size: 30px;
+  }
+  .description {
+    font-size: 12px;
+  }
+  .welcome-info {
+    width: 80%;
+    text-align: center;
+  }
+  .btn-options {
+    display: inherit !important;
+    margin: auto;
+  }
+}
+
 .description {
   margin-top: 20px;
   font-size: 16px;
@@ -161,6 +187,12 @@ a:hover {
   border: none;
   box-shadow: -1px 1px 15px rgba(212, 37, 212, 0.486);
  }
+
+ @media only screen and (max-width:1000px) {
+  .card {
+    display: none;
+  }
+}
 
 .input {
   margin: auto;
@@ -271,17 +303,18 @@ a:hover {
     text-align: center;
     height: 500px;
     width: 400px;
-    background-color: rgb(24, 24, 24);
-    box-shadow: -4px 3px 20px rgba(0, 0, 0, 0.822),
-    4px 2px 20px rgb(36, 36, 36);
-    border-radius: 12px;
+    background-color: transparent;
     backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px rgba(132, 50, 143, 0.452),
+    4px 0px 20px rgba(160, 160, 160, 0.295);
+    border-radius: 12px;
 }
 
 .login-cont h2 {
+  font-family: Oddval;
     color: white;
     transform: translateY(30px);
-    font-size: 30px;
+    font-size: 26px;
 }
 
 .enter-cred {
@@ -291,8 +324,9 @@ a:hover {
 .cred-input {
     border-radius: 10px;
     border-color: transparent;
-    background-color: #171717;
-    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    box-shadow: inset 2px 5px 10px rgba(216, 216, 216, 0.349);
     margin-top: 35px;
     padding: 20px;
     color: white;
@@ -443,7 +477,6 @@ hr {
 .genie-ask {
   text-align: center;
   margin-top: 10%;
-
 }
 
 .genie-ask > h2 {
@@ -507,6 +540,10 @@ hr {
 
   /* Ask Question */
 
+  .top-pad {
+    margin-top: 10%;
+  }
+
   .type-white {
     color: white;
     text-align: center;
@@ -540,18 +577,45 @@ hr {
 
   /* Single Question */
 
-  .question-container {
-    border-radius: 10px;
+  .single-question {
+    background-color: rgb(24, 24, 24);
+    border-radius: 20px !important;
+
   }
 
   .question-block {
     background-color: rgb(34, 34, 34);
     color: white;
     height: 60px;
+    padding-left: 5px;
   }
 
   .created-by {
     background-color: rgb(20, 20, 20);
     color: white;
     padding: 5px;
+  }
+
+  .comment-list {
+    color: white;
+    text-align: center;
+  }
+
+  .comment-input {
+    width: 60%;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 50px;
+    box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.452),
+    inset -1px 2px 8px 1px rgba(0, 0, 0, 0.075);
+  }
+
+  .align {
+    text-align: left !important;
+  }
+
+  .under {
+    margin: 0 !important;
+    margin-top: -8% !important;
   }

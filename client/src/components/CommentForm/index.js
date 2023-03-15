@@ -41,18 +41,10 @@ const CommentForm = ({ thoughtId }) => {
 
   return (
     <div>
-      <h4>Reply to this post</h4>
+      <h4 className="type-white align">Reply to this post</h4>
 
       {Auth.loggedIn() ? (
         <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
-          >
-            Character Count: {characterCount}/280
-            {error && <span className="ml-2">{error.message}</span>}
-          </p>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
@@ -62,14 +54,22 @@ const CommentForm = ({ thoughtId }) => {
                 name="commentText"
                 placeholder="Add your comment..."
                 value={commentText}
-                className="form-input w-100"
+                className="comment-input"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>
             </div>
+            <p
+           className={`type-white align ${
+            characterCount === 280 || error ? 'text-danger' : ''
+          }`}
+          >
+            Character Count: {characterCount}/280
+            {error && <span className="ml-2">{error.message}</span>}
+          </p>
 
             <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
+              <button className="flashy-btn under" type="submit">
                 Add Comment
               </button>
             </div>

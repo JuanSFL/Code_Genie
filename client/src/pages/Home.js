@@ -12,7 +12,7 @@ function Home() {
         <div className="welcome-info">
         <p className="description low-opacity">CODE GENIE</p>
       <h1 className="bold-intro">For Developers, By Developers... And A.I.</h1>
-      <p className="description">The World's first coding forum to integrate an A.I. chatbot to get developers answers immediately.</p>
+      <p className="description">The Worlds first coding forum to integrate an A.I. chatbot to get developers answers immediately.</p>
 
     {Auth.loggedIn() ? (
             <>
