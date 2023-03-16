@@ -619,11 +619,13 @@ hr {
     margin: 0 !important;
     margin-top: -8% !important;
   }
+    /**ChatBox**/
 
   .card {
     position: relative;
-    left: 325px;
+    left: 600px;
     width: 500px;
+    max-width: 800px;
     background-color: #fff;
     
       /* Set the border image to a linear gradient */
@@ -665,14 +667,18 @@ hr {
   }
   
   .chat-window {
-    height: 220px;
     overflow-y: scroll;
+    height: 900px;
   }
   
   .message-list {
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+
+  .messages.submitted{
+    text-align: right;
   }
   
   .chat-input {
@@ -684,25 +690,72 @@ hr {
   
   .message-input {
     flex: 1;
-    border: none;
-    outline: none;
+    border: 5px;
+    outline: purple;
     padding: 5px;
     font-size: 14px;
   }
   
-  .send-button {
-    border: none;
-    outline: none;
-    background-color: #333;
-    color: #fff;
-    font-size: 14px;
-    padding: 5px 10px;
-    cursor: pointer;
+  button {
+
+    --green: #1b3dfd;
+    font-size: 15px;
+    padding: 0.7em 2.7em;
+    letter-spacing: 0.06em;
+    position: relative;
+    font-family: inherit;
+    border-radius: 0.6em;
+    overflow: hidden;
+    transition: all 0.3s;
+    line-height: 1.4em;
+    border: 2px solid var(--green);
+    background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
+    color: #00008b;
+    box-shadow: inset 0 0 10px rgba(57, 27, 253, 0.4), 0 0 9px 3px rgba(196, 27, 253, 0.1);
+  }
+
+  
+  button:hover {
+    color: #00008b;
+    box-shadow: inset 0 0 10px rgba(166, 27, 253, 0.6), 0 0 9px 3px rgba(27, 99, 253, 0.2);
   }
   
-  .send-button:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+  button:before {
+    content: "";
+    position: absolute;
+    left: -4em;
+    width: 4em;
+    height: 100%;
+    top: 0;
+    transition: transform .4s ease-in-out;
+    background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%,rgba(27, 253, 156, 0.1) 60% , transparent 100%);
   }
- 
+  
+  button:hover:before {
+    transform: translateX(15em);
+  }
+
+  .savedAnswers {
+    cursor: pointer;
+    position: relative;
+    right: 575px;
+    top: -100px;
+    width: 300px;
+    height: 200px;
+    margin:10px;
+    border-radius: 20px;
+    padding: 5px;
+    
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  }
+  
+  .savedAnswers_content {
+    background: rgb(134, 135, 197);
+    border-radius: 17px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 55px;
+
+  }

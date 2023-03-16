@@ -13,7 +13,7 @@ function ChatBox() {
 
   const handleSendClick = () => {
     if (inputValue) {
-      setMessages([...messages, { text: inputValue, sender: 'user' }]);
+      setMessages([...messages, { text: inputValue, sender: 'user',type:'question', submitted:true }]);
       setInputValue('');
     }
   };
@@ -39,10 +39,20 @@ function ChatBox() {
           onChange={handleInputChange}
         />
         <button className="send-button" onClick={handleSendClick}>
-          Send
+            Submit
         </button>
       </div>
+      <div class="savedAnswers">
+<div class="savedAnswers_content">What does CSS stand for?<></>
+</div></div>
+<div class="savedAnswers">
+<div class="savedAnswers_content">What is Javascript?<></>
+</div></div>
+<div class="savedAnswers">
+<div class="savedAnswers_content">Difference between Object and Array <></>
+</div></div>
     </div>
+ 
   );
 }
 
