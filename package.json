@@ -17,14 +17,12 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "bootstrap": "^5.2.3"
-=======
+
     "axios": "^1.3.4",
     "boostrap": "^2.0.0",
     "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",
     "openai": "^3.2.1"
->>>>>>> ddf4317a32d0d198a5663ea5abf41ea2ea5149b8
+
   }
 }
