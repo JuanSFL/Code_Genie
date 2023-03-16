@@ -30,13 +30,20 @@ const typeDefs = gql`
     user: User
   }
 
+  type OpenAIResponse {
+    answer: String!
+  }
+
   type Query {
     users: [User]
     user(username: String!): User
     thoughts(username: String): [Thought]
     thought(thoughtId: ID!): Thought
     me: User
+    openai(input: String!): OpenAIResponse!
   }
+
+  
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth

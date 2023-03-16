@@ -1,14 +1,22 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
-const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
+const { User, Thought } = require("../models");
+const { signToken } = require("../utils/auth");
+const axios = require("axios");
+const openaiApiKey = process.env.OPENAI_API_KEY;
+console.log("OPENAI_API_KEY", openaiApiKey);
+const { Configuration, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+  apiKey: "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",
+});
+const openai = new OpenAIApi(configuration);
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find().populate("thoughts");
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username }).populate("thoughts");
     },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -19,9 +27,25 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts',);
+        return User.findOne({ _id: context.user._id }).populate("thoughts");
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    openai: async (_, { input }, context) => {
+      try {
+        
+        const completion = await openai.createCompletion({
+          model: "text-davinci-003",
+          prompt: input,
+          temperature: 0.6,
+          max_tokens: 1000,
+        });
+        return { answer: completion.data.choices[0].text };
+      } catch (error) {
+        console.error(error);
+
+      }
     },
   },
 
@@ -35,13 +59,13 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw new AuthenticationError("No user found with this email address");
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(user);
@@ -62,7 +86,7 @@ const resolvers = {
 
         return thought;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     addComment: async (parent, { thoughtId, commentText }, context) => {
       if (context.user) {
@@ -79,7 +103,7 @@ const resolvers = {
           }
         );
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     removeThought: async (parent, { thoughtId }, context) => {
       if (context.user) {
@@ -95,7 +119,7 @@ const resolvers = {
 
         return thought;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     removeComment: async (parent, { thoughtId, commentId }, context) => {
       if (context.user) {
@@ -112,7 +136,7 @@ const resolvers = {
           { new: true }
         );
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
