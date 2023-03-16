@@ -2,8 +2,24 @@ import React from "react";
 import tokens from "../images/tokens.png";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
+import { useQuery, gql } from "@apollo/client";
+
+const GET_OPENAI_ANSWER = gql`
+  query Openai($openaiInput2: String!) {
+    openai(input: $openaiInput2) {
+      answer
+    }
+  }
+`;
+
 
 function GenieMode() {
+  const [setAnswer, { error, data, loading }] = useQuery(GET_OPENAI_ANSWER);
+
+  const handleChange = (event) => {
+    setAnswer(event.target.value);
+  }
+  
   return (
     <div>
       <div className="genie-ask">
