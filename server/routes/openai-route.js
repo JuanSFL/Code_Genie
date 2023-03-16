@@ -18,7 +18,7 @@ route.get("/openai-route", async (req, res) => {
 
   const data = {
     prompt,
-    max_tokens: 5,
+    max_tokens: 700,
   };
 
   try {

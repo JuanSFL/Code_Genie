@@ -1,36 +1,26 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import { useQuery, gql } from "@apollo/client";
 
-function CodeGenie(props) {
-  console.log(props);
-  const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
+const GET_OPENAI_ANSWER = gql`
+  query Openai($openaiInput2: String!) {
+    openai(input: $openaiInput2) {
+      answer
+    }
+  }
+`;
 
-  const handleQuestionChange = (event) => {
-    setQuestion(event.target.value);
-  };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    axios.get('http://localhost:3001/openai')
-      .then(response => {
-        setAnswer(response.data.answer);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
+const ChatGpt = (props) => {
+  console.log("chat gpt props",props)
 
+  const [setAnswer, {error,data,loading}]= useQuery(GET_OPENAI_ANSWER)
+
+  
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Question:
-        <input type="text" value={question} onChange={handleQuestionChange} />
-      </label>
-      <button type="submit">Submit</button>
-      <div>Answer: {answer}</div>
-    </form>
-  );
+    <div>
+      <p>ChatGpt Component</p>
+    </div>
+  )
 }
 
-export default CodeGenie;
+export default ChatGpt
