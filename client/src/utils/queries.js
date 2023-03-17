@@ -49,6 +49,7 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      genieTokens
       thoughts {
         _id
         thoughtText

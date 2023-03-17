@@ -48,13 +48,14 @@ const resolvers = {
         return { answer: completion.data.choices[0].text };
       } catch (error) {
         console.error(error);
+
       }
     },
   },
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
+      const user = await User.create({ username, email, password});
       const token = signToken(user);
       return { token, user };
     },

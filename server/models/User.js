@@ -25,6 +25,10 @@ const userSchema = new Schema({
       ref: 'Thought',
     },
   ],
+  genieTokens:{
+    type:Number,
+    default:3
+  }
 });
 
 userSchema.pre('save', async function (next) {
