@@ -1,12 +1,16 @@
+require("dotenv").config();
+
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Thought } = require("../models");
 const { signToken } = require("../utils/auth");
 const axios = require("axios");
-const openaiApiKey = process.env.OPENAI_API_KEY;
-console.log("OPENAI_API_KEY", openaiApiKey);
 const { Configuration, OpenAIApi } = require("openai");
+
+const apiKey = process.env.OPENAI_API_KEY;
+console.log("OPENAI_API_KEY", apiKey)
+
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey
 });
 const openai = new OpenAIApi(configuration);
 
