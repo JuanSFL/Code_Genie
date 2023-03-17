@@ -7,10 +7,10 @@ const axios = require("axios");
 const { Configuration, OpenAIApi } = require("openai");
 
 const apiKey = process.env.OPENAI_API_KEY;
-console.log("OPENAI_API_KEY", apiKey)
+console.log("OPENAI_API_KEY", apiKey);
 
 const configuration = new Configuration({
-  apiKey
+  apiKey,
 });
 const openai = new OpenAIApi(configuration);
 
@@ -38,7 +38,6 @@ const resolvers = {
 
     openai: async (_, { input }, context) => {
       try {
-        
         const completion = await openai.createCompletion({
           model: "text-davinci-003",
           prompt: input,
@@ -48,14 +47,13 @@ const resolvers = {
         return { answer: completion.data.choices[0].text };
       } catch (error) {
         console.error(error);
-
       }
     },
   },
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password});
+      const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
     },

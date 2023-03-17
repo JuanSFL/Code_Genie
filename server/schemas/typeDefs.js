@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
@@ -7,7 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
     thoughts: [Thought]!
-    genieTokens:Int
+    genieTokens: Int
   }
 
   type Thought {
@@ -42,8 +42,6 @@ const typeDefs = gql`
     me: User
     openai(input: String!): OpenAIResponse!
   }
-
-  
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
