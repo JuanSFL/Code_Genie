@@ -18,8 +18,9 @@ import Profile from './pages/Profile';
 import Header from './components/Header';
 import SearchQuestion from './pages/SearchQuestion';
 import GenieMode from './pages/GenieMode';
-import Ask from './pages/Ask'
-import ChatBox from './pages/ChatBox';
+import Ask from './pages/Ask';
+
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
