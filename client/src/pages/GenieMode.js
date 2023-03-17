@@ -2,21 +2,30 @@ import React, { useState } from "react";
 import tokens from "../images/tokens.png";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
-import { useQuery } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { useParams } from 'react-router-dom';
+import { useQuery, gql, useLazyQuery } from "@apollo/client";
 
+const GET_OPENAI_ANSWER = gql`
+  query Openai($openaiInput2: String!) {
+    openai(input: $openaiInput2) {
+      answer
+    }
+  }
+`;
 
 function GenieMode() {
+  const [question, setQuestion] = useState(""); // add a state variable to store the question
+  const [setAnswer, { data }] = useLazyQuery(GET_OPENAI_ANSWER);
 
-  const { username: userParam } = useParams();
+  const handleChange = (event) => {
+    setQuestion(event.target.value); // update the state variable with the user input
+  };
 
-  const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { genieTokens: userParam },
-  });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setAnswer({ variables: { openaiInput2: question } });
+  };
 
-  const user = data?.me || data?.user || {};
-
+  console.log("Genie Mode Page", data);
   return (
     <div>
       <div className="genie-ask">
@@ -24,20 +33,24 @@ function GenieMode() {
           Get Your Answers. <span className="glowing">Instantly.</span>
         </h2>
         {Auth.loggedIn() ? (
-          <>
+          <form onSubmit={handleSubmit}>
             <input
               className="ask-q"
               placeholder="Ask the Genie"
               type="text"
               title="Search"
+              value={question}
+              onChange={handleChange}
             ></input>
-            <img src={tokens} className="token-icon" alt="token-icon"></img>{user.genieTokens}
-            
-            <button className="flashy-btn">Rub the Lamp</button>
+            <img src={tokens} className="token-icon" alt="token-icon"></img>
+            <button className="flashy-btn" type="submit">
+              Rub the Lamp
+            </button>
+            <div>{data?.openai.answer}</div>
             <p className="small-text">
               * This Question Will Cost 1 Genie Token *
             </p>
-          </>
+          </form>
         ) : (
           <>
             <p className="not-logged">
