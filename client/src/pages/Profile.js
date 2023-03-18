@@ -3,10 +3,12 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import profilePicture from "../images/profile.png";
 import ThoughtList from '../components/ThoughtList/index';
+import { Helmet } from "react-helmet";
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
+import NotAuthorized from '../components/NotAuthorized';
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -27,16 +29,15 @@ const Profile = () => {
 
   if (!user?.username) {
     return (
-      <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
-      </h4>
+     <NotAuthorized/>
     );
   }
 
   return (
     <div> 
-     
+      <Helmet>
+          <title>Code Genie | Profile</title>
+      </Helmet>
       <div>
       <div className="profile-container">
         <h1>Hello, {user.username}</h1>
@@ -50,9 +51,7 @@ const Profile = () => {
                 <h3>Recently Asked Questions</h3>
                 <hr/>
             </div>
-        </div>
-      </div>
-        <div className="recently-answered">
+            <div className="recently-answered">
           <ThoughtList
             thoughts={user.thoughts}
             title={`${user.username}'s thoughts...`}
@@ -60,6 +59,8 @@ const Profile = () => {
             showUsername={false}
           />
         </div>
+        </div>
+      </div>
       
       </div>
     </div>

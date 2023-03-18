@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from "react-helmet";
 
 
 import { useMutation } from '@apollo/client';
@@ -40,6 +41,9 @@ const Signup = () => {
 
   return (
     <div>
+      <Helmet>
+          <title>Code Genie | Signup</title>
+      </Helmet>
     <div className="large-container-center">
     <div className="login-cont">
 
