@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import { Helmet } from "react-helmet";
 
 import Auth from '../utils/auth';
 
@@ -42,6 +43,9 @@ const Login = (props) => {
 
   return (
     <div>
+       <Helmet>
+          <title>Code Genie | Login</title>
+      </Helmet>
     <div className="large-container-center">
     <div className="login-cont">
       <h2>LOGIN</h2>

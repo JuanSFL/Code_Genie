@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import genieDemo from "../images/genie-demo.png"
+import genieDemo from "../images/iphone-demo.png"
 import Auth from '../utils/auth';
 
 function Home() {
@@ -30,7 +30,7 @@ function Home() {
             </>
           )}
       </div>
-      <img src={genieDemo} className="card"></img>
+      <Link to ="/genie-mode"><img src={genieDemo} className="card"></img></Link>
       </div>
       </div>
     </div>

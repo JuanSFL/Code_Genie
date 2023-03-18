@@ -6,6 +6,8 @@ import { ADD_THOUGHT } from '../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
+import NotAuthorized from '../components/NotAuthorized';
+import { Helmet } from "react-helmet";
 
 const Ask = () => {
   const [thoughtText, setThoughtText] = useState('');
@@ -57,6 +59,9 @@ const Ask = () => {
 
   return (
     <div className="top-pad">
+      <Helmet>
+          <title>Code Genie | Ask</title>
+      </Helmet>
       <h3 className="type-white large">Ask the Community</h3>
 
       {Auth.loggedIn() ? (
@@ -96,14 +101,7 @@ const Ask = () => {
           </form>
         </>
       ) : (
-        <p className="not-logged">
-          You need to be logged in to ask questions. Please:
-          <div className="log-btns">
-              <Link to ="/login"><button className="flashy-btn">Login</button></Link>
-              <p className="or">Or</p>
-              <Link to ="/signup"><button className="flashy-btn">Signup</button></Link>
-              </div>
-        </p>
+   <NotAuthorized/>
       )}
     </div>
   );
