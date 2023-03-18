@@ -1,15 +1,19 @@
+import React from 'react';
+import SearchBar from '../components/SearchBar';
+import Auth from "../utils/auth";
+import { Link } from "react-router-dom";
+import "../Main.css"
+import data from "../Data.json"
 
-import Searchbar from '../components/SearchBar/index';
 
 function SearchQuestion() {
     return (
-        <div>
-        <div className="search-cont">
+      <div className="search-cont">
         <h1>Search</h1>
-        <Searchbar/>
-        </div>
-        </div>
-    )
-}
-
+        <SearchBar data={data} placeholder="Search questions..." ></SearchBar>
+      </div>
+    );
+  }
 export default SearchQuestion;
+
+{/* <input className="searchbar" placeholder="Search for a solution" type="text" title="Search"></input> */}
