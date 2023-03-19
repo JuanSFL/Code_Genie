@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { useQuery, gql, useLazyQuery } from "@apollo/client";
 import NotAuthorized from "../components/NotAuthorized";
 import { Helmet } from "react-helmet";
-
+// import GenieTokens from "../components/GeniePoints";
+import NoMoreTokens from "../components/NoMoreTokens";
 const GET_OPENAI_ANSWER = gql`
   query Openai($openaiInput2: String!) {
     openai(input: $openaiInput2) {
@@ -18,6 +19,20 @@ function GenieMode() {
   const [question, setQuestion] = useState(""); // add a state variable to store the question
   const [setAnswer, { loading, data }] = useLazyQuery(GET_OPENAI_ANSWER);
   const [history, setHistory] = useState([]); // add a state variable to store the history of questions and answers
+  const [genieTokens, setGenieTokens]=useState(3)
+
+  const handleClick = (event)=>{
+    setGenieTokens(genieTokens-1)
+  }
+
+  if(genieTokens<0){
+    return(<div>
+      <Helmet>
+          <title>Code Genie | GenieMode</title>
+      </Helmet>
+      <NoMoreTokens/>
+      </div>)
+  }
 
   const handleChange = (event) => {
     setQuestion(event.target.value); // update the state variable with the user input
@@ -43,7 +58,7 @@ function GenieMode() {
           Get Your Answers. <span className="glowing">Instantly.</span>
         </h2>
         {Auth.loggedIn() ? (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} >
             <input
               className="ask-q"
               placeholder="Ask the Genie"
@@ -52,14 +67,14 @@ function GenieMode() {
               value={question}
               onChange={handleChange}
             ></input>
-            <img src={tokens} className="token-icon" alt="token-icon"></img>
+            <img src={tokens} className="token-icon" alt="token-icon"></img><p>{genieTokens}</p>
             {loading ? (
               <div class="spinner">
                 <div class="spinner1"></div>
               </div>
             ) : (
               <div>
-                <button className="lamp-btn" type="submit">
+                <button className="lamp-btn" type="submit" onClick={handleClick}>
                   Rub the Lamp
                 </button>
                 <p className="small-text">
