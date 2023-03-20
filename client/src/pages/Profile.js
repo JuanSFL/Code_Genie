@@ -32,7 +32,7 @@ const Profile = () => {
      <NotAuthorized/>
     );
   }
-
+console.log(user)
   return (
     <div> 
       <Helmet>

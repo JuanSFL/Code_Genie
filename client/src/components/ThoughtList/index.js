@@ -26,7 +26,7 @@ const ThoughtList = ({
                 >
                   {thought.thoughtAuthor} <br />
                   <span>
-                    Posted this on {thought.createdAt}
+                    Posted on {thought.createdAt}
                   </span>
                 </Link>
               ) : (

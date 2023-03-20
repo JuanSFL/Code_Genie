@@ -31,9 +31,9 @@ const SingleThought = () => {
       </Helmet>
     <div className="my-3">
       <h3 className="created-by right">
-        Posted by {thought.thoughtAuthor} <br />
+       {thought.thoughtTitle} <br />
         <span style={{ fontSize: '1rem' }}>
-          On {thought.createdAt}
+          {thought.createdAt}
         </span>
       </h3>
       <div className="question-container">
