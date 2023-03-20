@@ -62,7 +62,7 @@ export const QUERY_ME = gql`
 
 export const QUERY_QUESTIONS = gql`
   query searchQuestions($keyword: String!) {
-    questions(filter: { searchText: { contains: $keyword } }) {
+    questions(keyword: $keyword) {
       _id
       questionText
       user {
@@ -70,7 +70,12 @@ export const QUERY_QUESTIONS = gql`
         username
         email
         password
-        thoughts
+        thoughts {
+        _id
+        thoughtText
+        thoughtAuthor
+        createdAt
+      }
         genieTokens
       }
     }
