@@ -16,7 +16,7 @@ function GenieTokens() {
   const user = data?.me || data?.user || {};
 
   return (
-    <p>
+    <p className="genieTokens">
    {user.genieTokens}
     </p>
   );

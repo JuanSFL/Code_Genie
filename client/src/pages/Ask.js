@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 
 const Ask = () => {
   const [thoughtText, setThoughtText] = useState('');
+  const [thoughtTitle, setThoughtTitle] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -38,6 +39,7 @@ const Ask = () => {
       const { data } = await addThought({
         variables: {
           thoughtText,
+          thoughtTitle,
           thoughtAuthor: Auth.getProfile().data.username,
         },
       });
@@ -50,12 +52,16 @@ const Ask = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
+  
     if (name === 'thoughtText' && value.length <= 280) {
       setThoughtText(value);
       setCharacterCount(value.length);
+    } 
+    if (name === 'thoughtTitle' && value.length <= 80) {
+      setThoughtTitle(value);
     }
   };
+  
 
   return (
     <div className="top-pad">
@@ -70,6 +76,15 @@ const Ask = () => {
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
+            <div className="question-title">
+              <textarea
+                name="thoughtTitle"
+                placeholder="Post Title"
+                value={thoughtTitle}
+                className="title-input"
+                onChange={handleChange}
+              ></textarea>
+            </div>
             <div className="question-ask">
               <textarea
                 name="thoughtText"
@@ -90,7 +105,7 @@ const Ask = () => {
 
           
               <button className="flashy-btn" type="submit">
-                Add Thought
+                Create Post !
               </button>
         
             {error && (
