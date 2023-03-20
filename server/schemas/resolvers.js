@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Thought } = require("../models");
+const { User, Thought, Question } = require("../models");
 const { signToken } = require("../utils/auth");
 const axios = require("axios");
 const { Configuration, OpenAIApi } = require("openai");
@@ -34,6 +34,13 @@ const resolvers = {
         return User.findOne({ _id: context.user._id }).populate("thoughts");
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    questions: async (parent, args, context, info) =>{
+      const {keyword} = args 
+      const information = await Question.findAll()
+      const filteredQuestions = information.filter(info=> info.questionText.includes(keyword) )
+        return filteredQuestions
+
     },
 
     openai: async (_, { input }, context) => {
