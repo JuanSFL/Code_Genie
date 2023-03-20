@@ -19,6 +19,7 @@ export const QUERY_THOUGHTS = gql`
   query getThoughts {
     thoughts {
       _id
+      thoughtTitle
       thoughtText
       thoughtAuthor
       createdAt
@@ -30,6 +31,7 @@ export const QUERY_SINGLE_THOUGHT = gql`
   query getSingleThought($thoughtId: ID!) {
     thought(thoughtId: $thoughtId) {
       _id
+      thoughtTitle
       thoughtText
       thoughtAuthor
       createdAt
