@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useQuery} from "@apollo/client"
 import {QUERY_QUESTIONS} from "../../utils/queries"
-
+import _ from 'lodash';
 
 function Searchbar() {
   const [query, setQuery] = useState("");
@@ -13,7 +13,11 @@ function Searchbar() {
     setQuery(event.target.value);
   }
 
-  const questions = data?.questions?.filter(
+  const questions = _.uniqBy(data?.questions, (question) => {
+    return [question.id, question.questionText].join("-");
+  });
+
+  const filteredQuestions = questions.filter(
     (question) =>
       question.questionText.toLowerCase().includes(query.toLowerCase())
   );
@@ -29,10 +33,10 @@ function Searchbar() {
       />
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
-      {query !== "" && !loading && questions && (
+      {query !== "" && !loading && filteredQuestions && (
         <ul className="question-list">
-          {questions.map((question) => (
-            <li className="question"key={question.id}>{question.questionText}</li>
+          {filteredQuestions.map((question) => (
+            <li className="question" key={question.id}>{question.questionText}</li>
           ))}
         </ul>
       )}
