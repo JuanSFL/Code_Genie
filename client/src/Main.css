@@ -45,7 +45,7 @@ body {
 
 /* HEADER */
 
-@import '~bootstrap/dist/css/bootstrap.css';
+@import "~bootstrap/dist/css/bootstrap.css";
 
 .navbar {
   background-color: rgb(10, 10, 10) !important;
@@ -62,12 +62,12 @@ body {
 
 a {
   color: white !important;
-  text-decoration: none
+  text-decoration: none;
 }
 
 a:hover {
-    text-shadow: -1px 1px 2px rgba(255, 255, 255, 0.466);
-    text-decoration: none
+  text-shadow: -1px 1px 2px rgba(255, 255, 255, 0.466);
+  text-decoration: none;
 }
 
 #genieMode {
@@ -129,10 +129,10 @@ a:hover {
   color: white;
   font-family: Oddval;
   text-shadow: -2px 3px 4px rgba(53, 36, 151, 0.486),
-  2px 2px 4px rgba(250, 250, 250, 0.438);
+    2px 2px 4px rgba(250, 250, 250, 0.438);
 }
 
-@media only screen and (max-width:900px) {
+@media only screen and (max-width: 1000px) {
   .bold-intro {
     font-size: 30px;
   }
@@ -140,12 +140,25 @@ a:hover {
     font-size: 12px;
   }
   .welcome-info {
+    display: block !important;
+    margin: auto !important;
+    padding-top: 30%;
     width: 80%;
     text-align: center;
+    margin-left: 0;
   }
   .btn-options {
     display: inherit !important;
     margin: auto;
+  }
+  .flashy-btn {
+    display: inherit !important;
+  }
+  .or {
+    display: inherit !important;
+  }
+  .left {
+    left: 0% !important;
   }
 }
 
@@ -155,13 +168,12 @@ a:hover {
   color: white;
   font-family: Oddval;
   text-shadow: -1px 2px 2px rgb(53, 36, 151),
-  1px 1px 2px rgba(250, 250, 250, 0.438),
-  -3px 2px 2px rgb(2, 2, 2);
+    1px 1px 2px rgba(250, 250, 250, 0.438), -3px 2px 2px rgb(2, 2, 2);
 }
 
 .btn-options {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   width: 75%;
 }
 
@@ -179,16 +191,16 @@ a:hover {
 }
 
 .card {
-  width: 30%;
-  margin-top: 100px;
+  margin-top: 70px;
+  right: 10%;
   bottom: 0;
-  height: 450px;
+  height: 550px;
   border-radius: 20px;
   border: none;
-  box-shadow: -1px 1px 15px rgba(212, 37, 212, 0.486);
- }
+  background-color: transparent;
+}
 
- @media only screen and (max-width:1000px) {
+@media only screen and (max-width: 1000px) {
   .card {
     display: none;
   }
@@ -232,8 +244,19 @@ a:hover {
 }
 
 .flashy-btn:before {
-  content: '';
-  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
   position: absolute;
   top: -2px;
   left: -2px;
@@ -244,12 +267,12 @@ a:hover {
   height: calc(100% + 4px);
   animation: glowing 20s linear infinite;
   opacity: 0;
-  transition: opacity .3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
 
 .flashy-btn:active {
-  color: #000
+  color: #000;
 }
 
 .flashy-btn:active:after {
@@ -262,7 +285,7 @@ a:hover {
 
 .flashy-btn:after {
   z-index: -1;
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -291,46 +314,46 @@ a:hover {
 /* LOGIN PAGE */
 
 .large-container-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .login-cont {
-    display: block;
-    margin: auto;
-    text-align: center;
-    height: 500px;
-    width: 400px;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-    box-shadow: 0px 0px 20px rgba(132, 50, 143, 0.452),
-    4px 0px 20px rgba(160, 160, 160, 0.295);
-    border-radius: 12px;
+  display: block;
+  margin: auto;
+  text-align: center;
+  height: 500px;
+  width: 400px;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  box-shadow: -2px 15px 20px rgba(132, 50, 143, 0.452),
+    -2px 10px 20px rgba(236, 236, 236, 0.295);
+  border-radius: 12px;
 }
 
 .login-cont h2 {
   font-family: Oddval;
-    color: white;
-    transform: translateY(30px);
-    font-size: 26px;
+  color: white;
+  transform: translateY(30px);
+  font-size: 26px;
 }
 
 .enter-cred {
-    margin: 12px;
+  margin: 12px;
 }
 
 .cred-input {
-    border-radius: 10px;
-    border-color: transparent;
-    background-color: transparent;
-    backdrop-filter: blur(5px);
-    box-shadow: inset 2px 5px 10px rgba(216, 216, 216, 0.349);
-    margin-top: 35px;
-    padding: 20px;
-    color: white;
-    font-size: 16px;
+  border-radius: 10px;
+  border-color: transparent;
+  background-color: #ffffff12;
+  box-shadow: inset 1px 1px 10px rgba(216, 216, 216, 0.349);
+  margin-top: 35px;
+  padding: 20px;
+  color: white;
+  font-size: 16px;
 }
 
 .labels {
@@ -347,25 +370,25 @@ a:hover {
 }
 
 .submit {
-    margin-top: 10px;
-    border-radius: 10px;
-    border-color: transparent ;
-    padding: 7px;
-    font-size: 16px;
-    font-weight: 500;
-    background-color: gold;
-    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.384);
-    color: rgb(255, 255, 255);
+  margin-top: 10px;
+  border-radius: 10px;
+  border-color: transparent;
+  padding: 7px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: gold;
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.384);
+  color: rgb(255, 255, 255);
 }
 
 .or {
-    transform: translateY(40px);
-    color: white;
+  transform: translateY(40px);
+  color: white;
 }
 
 .login-option {
-    margin-top: 25px;
-    font-size: 16px;
+  margin-top: 25px;
+  font-size: 16px;
 }
 
 /* END LOGIN */
@@ -381,6 +404,7 @@ a:hover {
   color: white;
   font-size: 42px;
   margin: 10px;
+  font-family: Oddval;
 }
 
 .searchbar {
@@ -406,16 +430,12 @@ a:hover {
   font-family: Oddval;
 }
 
-.profile-bg {
-  height: 400px;
-  background-color: white;
-}
-
 .profile-info {
   margin-top: 120px;
-  height: 500px;
-  background-color: rgb(49, 49, 49);
-  box-shadow: inset -2px -1px 20px 0px #000000b7;
+  background-color: transparent;
+  backdrop-filter: blur(3px);
+  box-shadow: 0px 0px 10px rgba(189, 52, 159, 0.658);
+  border: 1px solid rgba(255, 255, 255, 0.377);
   border-radius: 20px;
 }
 
@@ -424,7 +444,7 @@ a:hover {
   height: 200px;
   border-radius: 100%;
   transform: translateY(-75px);
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.753);
+  box-shadow: 0px 0px 10px rgba(219, 219, 219, 0.753);
 }
 
 .username {
@@ -458,6 +478,8 @@ hr {
 
 .question-card {
   background-color: black;
+  margin: auto;
+  display: block;
 }
 
 .card-title {
@@ -472,6 +494,35 @@ hr {
   height: 30px;
 }
 
+.post-preview {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.recently-answered {
+  display: flex;
+}
+
+.right {
+  padding-left: 20px;
+}
+
+.recent-question-body {
+  padding-left: 20px;
+}
+
+.post-preview > h4 {
+  font-size: 22px !important;
+  color: white;
+  font-weight: bold;
+}
+
+.view-post {
+  margin-left: 20px;
+  text-decoration: underline;
+}
+
 /* GENIE MODE */
 
 .genie-ask {
@@ -484,138 +535,322 @@ hr {
   font-family: Oddval;
 }
 
-  .glowing {
-    background-image: linear-gradient(
-      to right,
-      purple,
-      rgb(196, 196, 2),
-      red,
-      rgb(90, 68, 216),
-      gold,
-      blue
-    );
-    background-size: 220%;
-    background-repeat: repeat;
-    transition: background-position 0.5s;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.301);
-    animation: animateGradient 5s ease-in-out infinite;
-  }
-  
-  @keyframes animateGradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+.glowing {
+  background-image: linear-gradient(
+    to right,
+    purple,
+    rgb(196, 196, 2),
+    red,
+    rgb(90, 68, 216),
+    gold,
+    blue
+  );
+  background-size: 220%;
+  background-repeat: repeat;
+  transition: background-position 0.5s;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.301);
+  animation: animateGradient 5s ease-in-out infinite;
+}
 
-  .ask-q {
-    margin-top: 20px;
-    width: 40%;
-    height: 40px;
-    border-radius: 10px;
-    border-color: transparent;
-    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.856);
+@keyframes animateGradient {
+  0% {
+    background-position: 0% 50%;
   }
-
-
-  .token-icon {
-    max-width: 30px;
-    height: 25px;
-    margin-left: 10px;
+  50% {
+    background-position: 100% 50%;
   }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
-  .small-text {
-    margin-top: 55px;
+.ask-q {
+  margin-top: 20px;
+  width: 40%;
+  height: 40px;
+  border-radius: 10px;
+  border-color: transparent;
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.856);
+}
+
+.genieTokens {
+  color: white;
+  font-size: 12px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.token-icon {
+  max-width: 30px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.small-text {
+  margin-top: 55px;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+}
+
+.lamp-btn {
+  margin: auto;
+  top: 45px;
+  display: block;
+  width: 140px;
+  height: 50px;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: rgb(17, 17, 17);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.452);
+}
+
+.lamp-btn:hover {
+  background: rgb(209, 179, 9);
+  color: black;
+  transition: 0.5s;
+}
+
+.lamp-btn:after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(229, 172, 142, 0),
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(229, 172, 142, 0)
+  );
+  transform: rotateZ(60deg) translate(-5em, 7.5em);
+}
+
+.lamp-btn:hover::after,
+button:focus::after {
+  animation: lamp-btn 1s forwards;
+}
+@keyframes lamp-btn {
+  100% {
+    transform: rotateZ(60deg) translate(1em, -9em);
+  }
+}
+
+button:active {
+  box-shadow: 0px 0px 0px white;
+  -webkit-box-shadow: inset -2px 2px 2px #ccc;
+  -moz-box-shadow: inset -2px 2px 2px #ccc;
+  box-shadow: inset -2px 2px 2px #ccc;
+  transform: translate(0, 2px);
+  color: #fff491;
+}
+button:focus {
+  outline: 0;
+}
+
+/* .response {
     color: white;
-    text-align: center;
-    font-size: 10px;
-  }
-
-  /* Ask Question */
-
-  .top-pad {
-    margin-top: 10%;
-  }
-
-  .type-white {
-    color: white;
-    text-align: center;
-    margin-top: 15px;
-  }
-
-  .question-ask {
     display: block;
+    padding-top: 3%;
     margin: auto;
-  }
-
-  .ask-input {
-    width: 60%;
-    height: 80px;
-    border-radius: 10px;
-    font-size: 14px;
-    margin: auto;
-    margin-top: 50px;
-    display: block;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.452),
-    inset -1px 2px 8px 1px rgba(0, 0, 0, 0.288);
-  }
-
-  .not-logged {
-    color: white;
-    font-family: Oddval;
-    text-align: center;
-    margin-top: 40px;
-    text-shadow: -2px 2px 3px rgba(182, 26, 182, 0.89);
-  }
-
-  /* Single Question */
-
-  .single-question {
-    background-color: rgb(24, 24, 24);
-    border-radius: 20px !important;
-
-  }
-
-  .question-block {
-    background-color: rgb(34, 34, 34);
-    color: white;
-    height: 60px;
     padding-left: 5px;
-  }
+    padding-right: 5px;
+} */
 
-  .created-by {
-    background-color: rgb(20, 20, 20);
-    color: white;
-    padding: 5px;
-  }
+.bubble {
+  display: none;
+  color: white;
+  width: 50%;
+  height: 200px;
+  background-color: rgb(10, 10, 10);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 50px;
+  box-shadow: 1px 0px 20px 0px #ffffff66;
+}
 
-  .comment-list {
-    color: white;
-    text-align: center;
-  }
+.angle {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-right: 26px solid rgb(10, 10, 10);
+  border-bottom: 13px solid transparent;
+  left: -4%;
+  top: 10%;
+}
 
-  .comment-input {
-    width: 60%;
-    height: 80px;
-    border-radius: 10px;
-    font-size: 14px;
-    margin-top: 50px;
-    box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.452),
+
+.code {
+  background-color: black;
+}
+
+.genie-response {
+  display: flex;
+}
+
+.message-icon {
+  max-width: 70px;
+  margin-left: -130%;
+  margin-top: -10%;
+}
+
+.bubble.loaded {
+  display: inherit;
+}
+
+.genie-history {
+  display: block;
+}
+
+/* Ask Question */
+
+.top-pad {
+  margin-top: 10%;
+}
+
+.type-white {
+  color: white;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.question-title {
+  margin: auto;
+  display: block;
+}
+
+.title-input {
+  text-align: center;
+  width: 40%;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin: auto;
+  margin-top: 30px;
+  display: block;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.452);
+}
+
+.question-ask {
+  display: block;
+  margin: auto;
+}
+
+.ask-input {
+  text-align: center;
+  width: 60%;
+  height: 80px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin: auto;
+  margin-top: 50px;
+  display: block;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.452);
+}
+
+.not-logged {
+  color: white;
+  font-family: Oddval;
+  text-align: center;
+  margin-top: 40px;
+  text-shadow: -2px 2px 3px rgba(182, 26, 182, 0.89);
+}
+
+/* Single Question */
+
+.single-question {
+  backdrop-filter: blur(10px);
+  border-radius: 20px !important;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.226);
+}
+
+.question-block {
+  color: white;
+  height: 60px;
+  padding-left: 5px;
+}
+
+.created-by {
+  color: white;
+  padding: 5px;
+  border-bottom: 0.5px solid white;
+}
+
+.comment-list {
+  color: white;
+}
+
+.comment-form > p {
+  color: white;
+}
+
+.comment-form > p > a {
+  text-decoration: underline;
+}
+
+.right {
+  margin-left: 3px;
+}
+
+.comment-input {
+  width: 60%;
+  height: 80px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-top: 50px;
+  box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.452),
     inset -1px 2px 8px 1px rgba(0, 0, 0, 0.075);
-  }
+}
 
-  .align {
-    text-align: left !important;
-  }
+.align {
+  text-align: left !important;
+}
 
-  .under {
-    margin: 0 !important;
-    margin-top: -8% !important;
+.under {
+  margin: 0 !important;
+  margin-top: -8% !important;
+}
+
+/* LOADER */
+
+.spinner {
+  display: block;
+  margin: auto;
+  margin-top: 40px;
+  background-image: linear-gradient(rgb(125, 35, 177) 30%, rgb(0, 174, 255));
+  width: 50px;
+  height: 50px;
+  animation: spinning 1.7s linear infinite;
+  text-align: center;
+  border-radius: 50px;
+  filter: blur(1px);
+  box-shadow: 0px -5px 20px 0px rgb(145, 17, 219),
+    0px 5px 20px 0px rgb(0, 153, 255);
+}
+
+.spinner1 {
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  filter: blur(10px);
+}
+
+@keyframes spinning {
+  to {
+    transform: rotate(360deg);
   }
+}

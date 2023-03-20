@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
+import { Helmet } from "react-helmet";
 
 import { QUERY_SINGLE_THOUGHT } from '../utils/queries';
 
@@ -25,11 +26,14 @@ const SingleThought = () => {
   }
   return (
     <div className="single-question">
+      <Helmet>
+          <title>Code Genie | Viewing Post</title>
+      </Helmet>
     <div className="my-3">
-      <h3 className="created-by">
-        Posted by {thought.thoughtAuthor} <br />
+      <h3 className="created-by right">
+       {thought.thoughtTitle} <br />
         <span style={{ fontSize: '1rem' }}>
-          On {thought.createdAt}
+          {thought.createdAt}
         </span>
       </h3>
       <div className="question-container">
@@ -40,7 +44,7 @@ const SingleThought = () => {
         </blockquote>
       </div>
 
-      <div className="my-5">
+      <div className="comment-list">
         <CommentList comments={thought.comments} />
       </div>
       <div className="m-3 p-4">
