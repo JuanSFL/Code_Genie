@@ -59,3 +59,22 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_QUESTIONS = gql`
+  query questions{
+    question{
+      _id
+      questionText
+      user{
+        _id
+        username
+        email
+        password
+        thoughts
+        genieTokens
+      }
+    }
+  }
+
+
+`;
