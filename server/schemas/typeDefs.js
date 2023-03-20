@@ -41,13 +41,13 @@ const typeDefs = gql`
     thought(thoughtId: ID!): Thought
     me: User
     openai(input: String!): OpenAIResponse!
-    questions: [Question!]!
+    questions(keyword: String!): [Question!]!
     question(id: ID!): Question
   }
   type Question {
     _id: ID!
     questionText: String!
-    user: User!
+    user: User
   }
   input NewQuestionInput {
     questionText: String!

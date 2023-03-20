@@ -37,8 +37,7 @@ const resolvers = {
     },
     questions: async (parent, args, context, info) =>{
       const {keyword} = args 
-      const information = await Question.findAll()
-      const filteredQuestions = information.filter(info=> info.questionText.includes(keyword) )
+      const filteredQuestions = await Question.find({questionText:{ "$regex": keyword, "$options": "i" }})
         return filteredQuestions
 
     },
