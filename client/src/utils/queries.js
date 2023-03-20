@@ -61,11 +61,11 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_QUESTIONS = gql`
-  query questions{
-    question{
+  query searchQuestions($keyword: String!) {
+    questions(filter: { searchText: { contains: $keyword } }) {
       _id
       questionText
-      user{
+      user {
         _id
         username
         email
@@ -75,6 +75,5 @@ export const QUERY_QUESTIONS = gql`
       }
     }
   }
-
-
 `;
+
