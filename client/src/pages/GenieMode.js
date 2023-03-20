@@ -7,6 +7,9 @@ import NotAuthorized from "../components/NotAuthorized";
 import { Helmet } from "react-helmet";
 // import GenieTokens from "../components/GeniePoints";
 import NoMoreTokens from "../components/NoMoreTokens";
+import logo from "../images/logo.png"
+
+
 const GET_OPENAI_ANSWER = gql`
   query Openai($openaiInput2: String!) {
     openai(input: $openaiInput2) {
@@ -67,7 +70,7 @@ function GenieMode() {
               value={question}
               onChange={handleChange}
             ></input>
-            <img src={tokens} className="token-icon" alt="token-icon"></img><p>{genieTokens}</p>
+            <img src={tokens} className="token-icon" alt="token-icon"></img><p className="genieTokens">{genieTokens} Tokens Remaining</p>
             {loading ? (
               <div class="spinner">
                 <div class="spinner1"></div>
@@ -80,19 +83,13 @@ function GenieMode() {
                 <p className="small-text">
                   * This Question Will Cost 1 Genie Token *
                 </p>
-                <div className={`genie-response ${data?.openai.answer ? "loaded" : ""}`}>
-                  <p className="response">{question}</p>
-                  <p className="response">{data?.openai.answer}</p>
+                <div className={`bubble ${data?.openai.answer ? "loaded" : ""}`}>
+                  {data?.openai.answer}
+                  <div className="angle"></div>
+                  <img src={logo} className="message-icon"/>
                 </div>
-                {/* <div className="genie-history">
-                  {history.slice(-3).map((entry, index) => (
-                    <div key={index} className="history-entry">
-                      <p className="question">{entry.question}</p>
-                      <p className="answer">{entry.answer}</p>
-                    </div>
-                  ))}
-                </div> */}
-              </div>
+                  {/* <p className="response">{data?.openai.answer}</p> */}
+                </div>
             )}
           </form>
         ) : (

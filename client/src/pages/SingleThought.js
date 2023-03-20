@@ -30,7 +30,7 @@ const SingleThought = () => {
           <title>Code Genie | Viewing Post</title>
       </Helmet>
     <div className="my-3">
-      <h3 className="created-by">
+      <h3 className="created-by right">
         Posted by {thought.thoughtAuthor} <br />
         <span style={{ fontSize: '1rem' }}>
           On {thought.createdAt}
@@ -44,7 +44,7 @@ const SingleThought = () => {
         </blockquote>
       </div>
 
-      <div className="my-5">
+      <div className="comment-list">
         <CommentList comments={thought.comments} />
       </div>
       <div className="m-3 p-4">
