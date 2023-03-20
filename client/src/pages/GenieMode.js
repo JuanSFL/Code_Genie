@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import tokens from "../images/tokens.png";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
-import { useQuery, gql, useLazyQuery } from "@apollo/client";
+import { gql, useLazyQuery } from "@apollo/client";
 
 const GET_OPENAI_ANSWER = gql`
   query Openai($openaiInput2: String!) {
