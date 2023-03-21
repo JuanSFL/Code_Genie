@@ -22,12 +22,14 @@ const SingleThought = () => {
   const thought = data?.thought || {};
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div class="spinner">
+    <div class="spinner1"></div>
+  </div>;
   }
   return (
     <div className="single-question">
       <Helmet>
-          <title>Code Genie | Viewing Post</title>
+          <title>Code Genie | {thought.thoughtTitle}</title>
       </Helmet>
     <div className="my-3">
       <h3 className="created-by right">
@@ -47,7 +49,7 @@ const SingleThought = () => {
       <div className="comment-list">
         <CommentList comments={thought.comments} />
       </div>
-      <div className="m-3 p-4">
+      <div className="m-3">
         <CommentForm thoughtId={thought._id} />
       </div>
     </div>
