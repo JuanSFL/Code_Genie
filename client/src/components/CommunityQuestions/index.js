@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ThoughtList = ({
+const CommunityQuestions = ({
   thoughts,
   title,
+  thoughtTitle = true,
   showTitle = true,
   showUsername = true,
 }) => {
@@ -17,37 +18,28 @@ const ThoughtList = ({
       {thoughts &&
         thoughts.map((thought) => (
           <div key={thought._id} className="post-header">
-            <div className="post-preview">
+            <div className="community-post">
+            <div className="individual-post">
             <h4>
-              {showUsername ? (
                 <Link
                   className="post-title"
                   to={`/thoughts/${thought._id}`}
                 >
                   {thought.thoughtTitle} <br />
                 </Link>
-              ) : (
-                <>
-                  <span>
-                    Posted this on {thought.createdAt}
-                  </span>
-                </>
-              )}
             </h4>
-            {/* <div className="card-body bg-light p-2">
+            <div className="full-post">
+            <div className="card-body p-2">
               <p>{thought.thoughtText}</p>
-            </div> */}
-            <Link
-              className="view"
-              to={`/thoughts/${thought._id}`}
-            >
-              View Post and Replys
-            </Link>
             </div>
-          </div>
+            <Link to={`/thoughts/${thought._id}`}><button className="view-post">View Post and Replys</button></Link>
+            </div>
+            </div>
+            </div>
+            </div>
         ))}
     </div>
   );
 };
 
-export default ThoughtList;
+export default CommunityQuestions;

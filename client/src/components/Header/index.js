@@ -21,13 +21,13 @@ function Header() {
 
     <ul className="navbar-nav">
       <li className="nav-item">
-        <a className="nav-link active" href="#">About <span className="sr-only"></span></a>
+        <Link to="/community" className="nav-link active">Community<span className="sr-only"></span></Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/ask">Ask a Question</a>
+        <Link to="/ask" className="nav-link" >Ask a Question</Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" id="genieMode" href="/genie-mode">Genie Mode</a>
+        <Link to="/genie-mode"  className="nav-link" id="genieMode">Genie Mode</Link>
       </li>
     </ul>
     

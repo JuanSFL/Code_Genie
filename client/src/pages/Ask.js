@@ -74,7 +74,9 @@ const Ask = () => {
 
       {Auth.loggedIn() ? (
         <>
+        <div className="ask-form">
           <form
+          id="spacing"
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
@@ -116,7 +118,9 @@ const Ask = () => {
               </div>
             )}
           </form>
+          </div>
         </>
+        
       ) : (
    <NotAuthorized/>
       )}

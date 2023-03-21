@@ -42,6 +42,18 @@ const typeDefs = gql`
     thought(thoughtId: ID!): Thought
     me: User
     openai(input: String!): OpenAIResponse!
+    questions(keyword: String!): [Question!]!
+    question(id: ID!): Question
+  }
+  type Question {
+    _id: ID!
+    questionText: String!
+    user: User
+  }
+  input NewQuestionInput {
+    questionText: String!
+    authorName: String!
+    tags: [String!]
   }
 
   type Mutation {
@@ -51,6 +63,7 @@ const typeDefs = gql`
     addComment(thoughtId: ID!, commentText: String!): Thought
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addQuestion(input: NewQuestionInput!): Question!
   }
 `;
 
