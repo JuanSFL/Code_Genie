@@ -19,7 +19,7 @@ import Header from './components/Header';
 import SearchQuestion from './pages/SearchQuestion';
 import GenieMode from './pages/GenieMode';
 import Ask from './pages/Ask'
-import ChatBox from './pages/Chatbox';
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -89,10 +89,6 @@ function App() {
                 path="/thoughts/:thoughtId"
                 element={<SingleThought />}
               />
-              <Route
-                path="/chatbox"
-                element={<ChatBox />}
-                />
             </Routes>
           </div>
         </div>
