@@ -414,6 +414,14 @@ a:hover {
   border-color: transparent;
   box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.856);
 }
+.question {
+  color: white;
+}
+
+.question-list{
+  list-style: none;
+  margin: 20px;
+}
 
 /* END SEARCH BAR */
 
@@ -824,6 +832,93 @@ button:focus {
   margin-top: -8% !important;
 }
 
+
+  .card {
+    position: relative;
+    left: 325px;
+    width: 500px;
+    background-color: #fff;
+    
+      /* Set the border image to a linear gradient */
+      border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
+      
+      /* Set the width of the border */
+      border-width: 40px;
+      
+      /* Add the animation to the border */
+      animation: animateBorder 10s ease-in-out infinite;
+    }
+    
+    @keyframes animateBorder {
+      /* Define the keyframes for the animation */
+      0% {
+        border-image-slice: 1;
+        border-image-position: 0% 50%;
+      }
+      
+      50% {
+        border-image-slice: 1;
+        border-image-position: 100% 50%;
+      }
+      
+      100% {
+        border-image-slice: 1;
+        border-image-position: 0% 50%;
+      }
+    }
+    
+  
+  .chat-header {
+    background-color: #040200;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .chat-window {
+    height: 220px;
+    overflow-y: scroll;
+  }
+  
+  .message-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+  
+  .message-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+  }
+  
+  .send-button {
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .send-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+  }
+ 
 /* LOADER */
 
 .spinner {
@@ -854,3 +949,4 @@ button:focus {
     transform: rotate(360deg);
   }
 }
+

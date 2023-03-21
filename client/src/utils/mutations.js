@@ -55,3 +55,14 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+export const ADD_QUESTION = gql`
+  mutation addQuestion($input: NewQuestionInput!) {
+    addQuestion(input: $input) {
+      id
+      questionText
+      questionAuthor
+      createdAt
+    }
+  }
+`;

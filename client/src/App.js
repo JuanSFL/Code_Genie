@@ -20,6 +20,7 @@ import SearchQuestion from './pages/SearchQuestion';
 import GenieMode from './pages/GenieMode';
 import Ask from './pages/Ask'
 
+
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
