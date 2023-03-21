@@ -19,7 +19,8 @@ import Header from './components/Header';
 import SearchQuestion from './pages/SearchQuestion';
 import GenieMode from './pages/GenieMode';
 import Ask from './pages/Ask'
-
+import AllQuestions from './pages/AllQuestions';
+import Footer from './components/Footer';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -68,6 +69,10 @@ function App() {
               <Route 
                 path="/ask"
                 element={<Ask />}
+              />
+              <Route 
+                path="/community"
+                element={<AllQuestions />}
               />
               <Route 
                 path="/search"
