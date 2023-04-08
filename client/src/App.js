@@ -54,10 +54,6 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
-              <Route 
-                path="/"
-                element={<Home />}
-              />
                <Route 
                 path="/genie-mode"
                 element={<GenieMode />}
@@ -93,6 +89,10 @@ function App() {
               <Route 
                 path="/thoughts/:thoughtId"
                 element={<SingleThought />}
+              />
+               <Route 
+                path="*"
+                element={<Home />}
               />
             </Routes>
           </div>
