@@ -52,7 +52,7 @@ function GenieMode() {
 
   console.log("Genie Mode Page", data);
   return (
-    <div>
+    <div className="appear">
       <Helmet>
           <title>Code Genie | GenieMode</title>
       </Helmet>
@@ -88,7 +88,6 @@ function GenieMode() {
                   <div className="angle"></div>
                   <img src={logo} className="message-icon"/>
                 </div>
-                  {/* <p className="response">{data?.openai.answer}</p> */}
                 </div>
             )}
           </form>

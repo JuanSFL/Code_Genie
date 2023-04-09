@@ -66,11 +66,16 @@ body {
   box-shadow: 1px -8px 20px 0px rgba(219, 219, 219, 0.349);
 }
 
+.navbar-collapse {
+  justify-content: space-between !important;
+  text-align: center !important;
+}
+
 .nav-link {
   cursor: pointer !important;
 }
 
-.navbar-brand {
+#logo {
   margin-right: 14.5rem;
 }
 
@@ -115,6 +120,10 @@ a:hover {
 
 #logo {
   max-width: 40px;
+}
+
+.navbar-toggler {
+  border: transparent !important;
 }
 
 .navbar-toggler-icon {
@@ -717,7 +726,7 @@ hr {
 }
 
 .lamp-btn:hover::after,
-button:focus::after {
+.lamp-btn:focus::after {
   animation: lamp-btn 1s forwards;
 }
 @keyframes lamp-btn {
@@ -749,9 +758,10 @@ button:focus {
 
 .bubble {
   display: none;
+  align-items: center;
+  position: relative;
   color: white;
   width: 50%;
-  height: 200px;
   background-color: rgb(10, 10, 10);
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -765,14 +775,15 @@ button:focus {
 }
 
 .angle {
-  position: relative;
+  position: absolute;
   width: 0;
   height: 0;
   border-top: 13px solid transparent;
   border-right: 26px solid rgb(10, 10, 10);
   border-bottom: 13px solid transparent;
-  left: -4%;
-  top: 10%;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 
@@ -785,9 +796,11 @@ button:focus {
 }
 
 .message-icon {
+  position: absolute;
+  left: -100px;
+  top: 50%;
+  transform: translateY(-50%);
   max-width: 70px;
-  margin-left: -130%;
-  margin-top: -10%;
 }
 
 .bubble.loaded {
@@ -816,7 +829,7 @@ button:focus {
 }
 
 .title-input {
-  text-align: center;
+  padding-left: 10px;
   width: 40%;
   height: 40px;
   border-radius: 10px;
@@ -832,7 +845,7 @@ button:focus {
 }
 
 .ask-input {
-  text-align: center;
+  padding-left: 10px;
   width: 60%;
   height: 80px;
   border-radius: 10px;
@@ -851,10 +864,13 @@ button:focus {
 }
 
 .ask-form {
-  justify-content: center;
   background-color: rgb(10, 10, 10);
   height: 400px;
   border-radius: 20px;
+  width: 70%;
+  margin: auto;
+  margin-top: 25px;
+  box-shadow: 0px 0px 10px #ffffff66;
 }
 
 #spacing {
@@ -970,6 +986,8 @@ button:focus {
 .community-questions {
   background-color: rgb(10, 10, 10);
   box-shadow: 1px 1px 2px black;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px #ffffff1f;
 }
 
 .community-post {

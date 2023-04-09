@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 
 function SearchQuestion() {
     return (
-        <div>
+        <div className="appear">
       <Helmet>
           <title>Code Genie | Search</title>
       </Helmet>
