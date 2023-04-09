@@ -42,8 +42,8 @@ function Home() {
             {Auth.loggedIn() ? (
               <>
                 <div className="btn-options">
-                  <Link to="/search">
-                    <button className="flashy-btn left">Search</button>
+                  <Link to="/genie">
+                    <button className="flashy-btn left">Genie Mode</button>
                   </Link>
                 </div>
               </>

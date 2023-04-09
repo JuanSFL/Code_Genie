@@ -42,7 +42,7 @@ const Login = (props) => {
   };
 
   return (
-    <div>
+    <div className="appear">
        <Helmet>
           <title>Code Genie | Login</title>
       </Helmet>

@@ -40,7 +40,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className="appear">
       <Helmet>
           <title>Code Genie | Signup</title>
       </Helmet>

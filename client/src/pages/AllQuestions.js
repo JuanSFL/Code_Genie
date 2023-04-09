@@ -7,7 +7,7 @@ function AllQuestions() {
     const { loading, data } = useQuery(QUERY_THOUGHTS);
     const thoughts = data?.thoughts || [];
     return (
-      <div>
+      <div className="appear">
         {loading ? (
               <div class="spinner">
               <div class="spinner1"></div>

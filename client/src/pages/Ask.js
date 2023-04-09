@@ -66,7 +66,7 @@ const Ask = () => {
   
 
   return (
-    <div className="top-pad">
+    <div className="appear top-pad">
       <Helmet>
           <title>Code Genie | Ask</title>
       </Helmet>

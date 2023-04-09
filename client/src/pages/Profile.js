@@ -43,7 +43,7 @@ const Profile = () => {
   }
 
   return (
-    <div> 
+    <div className="appear"> 
       <Helmet>
           <title>Code Genie | Profile</title>
       </Helmet>

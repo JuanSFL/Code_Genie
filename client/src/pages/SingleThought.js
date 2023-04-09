@@ -27,13 +27,13 @@ const SingleThought = () => {
   </div>;
   }
   return (
-    <div className="single-question">
+    <div className="appear single-question">
       <Helmet>
           <title>Code Genie | {thought.thoughtTitle}</title>
       </Helmet>
     <div className="my-3">
       <h3 className="created-by right">
-       {thought.thoughtTitle} <br />
+       {thought.thoughtTitle}  <br />
         <span style={{ fontSize: '1rem' }}>
           {thought.createdAt}
         </span>
